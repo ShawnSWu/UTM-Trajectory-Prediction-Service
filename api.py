@@ -32,6 +32,10 @@ def predict_all():
     return json.loads( '{"predictTrajectoryPoint":%s}' % str( result_list ) )
 
 
+@app.route( "/" )
+def home():
+    return "welcome"
+
 
 if __name__ == "__main__":
-    app.run(threaded=False)
+    app.run( threaded=False )
