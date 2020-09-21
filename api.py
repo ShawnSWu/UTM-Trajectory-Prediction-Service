@@ -31,5 +31,7 @@ def predict_all():
             result_list.append( [lon, lat] )
     return json.loads( '{"predictTrajectoryPoint":%s}' % str( result_list ) )
 
+
+
 if __name__ == "__main__":
     app.run()
