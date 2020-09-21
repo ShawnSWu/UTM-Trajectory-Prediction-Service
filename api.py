@@ -3,7 +3,6 @@ from tensorflow.python.keras.models import load_model
 import data_processor
 import numpy as np
 import json
-import requests
 
 app = Flask( __name__ )
 
@@ -31,16 +30,6 @@ def predict_all():
             lon = predict_coordinate[0][1]
             result_list.append( [lon, lat] )
     return json.loads( '{"predictTrajectoryPoint":%s}' % str( result_list ) )
-
-
-def get_weather_data_by_location(lat, lon):
-    access_key = '1f70bbf9a994dde20e0bd64d5d472ae2'
-    query = '{lat},{lon}'.format( lat=lat, lon=lon )
-    url = 'http://api.weatherstack.com/current?access_key={access_key}&query={query}'.format( access_key=access_key,
-                                                                                              query=query )
-    api_result = requests.get( url )
-    return api_result.json()
-
 
 if __name__ == "__main__":
     app.run()
