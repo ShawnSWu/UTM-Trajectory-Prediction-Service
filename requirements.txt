@@ -3,4 +3,4 @@ keras==2.2.0
 numpy
 pandas
 sklearn
-tensorflow==2.1.0
+tensorflow==2.0.0
